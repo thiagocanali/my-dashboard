@@ -7,7 +7,7 @@ export default [
     children: [
       {
         name: 'dashboard',
-        path: 'dashboard', // rota filha não precisa do '/'
+        path: 'dashboard',
         component: () => import('../pages/xDashboard.vue')
       },
       {
@@ -42,9 +42,9 @@ export default [
       }
     ]
   },
-  // Rota fallback (opcional) para evitar página em branco
+  // fallback para qualquer rota inválida
   {
-    path: '/:pathMatch(.*)*',
+    path: '/:catchAll(.*)',
     redirect: '/dashboard'
   }
 ]

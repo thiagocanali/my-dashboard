@@ -2,6 +2,7 @@
   "name": "my-dashboard",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://thiagocanali.github.io/my-dashboard",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
