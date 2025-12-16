@@ -1,25 +1,28 @@
-# vue-dashboard
+# Vue Dashboard E-commerce
 
-Dashboard-Admin.vue // Em desenvolvimento...
+Este projeto é um **dashboard de e-commerce** desenvolvido em **Vue 3** com **Vite**. Ele inclui páginas de produtos, dashboard principal, e funcionalidades básicas como galeria de produtos, carrinho e estatísticas.
 
-## Project setup
-```
-npm install
-```
+## 🚀 Funcionalidades
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+- **Dashboard principal** com:
+  - Boas-vindas ao usuário
+  - Cards de estatísticas rápidas (pedidos, faturamento, usuários, produtos)
+  - Produtos em destaque
+- **Página de Produto** com:
+  - Galeria de imagens
+  - Informações detalhadas do produto
+  - Avaliações
+  - Controle de quantidade e botão “Adicionar ao carrinho”
+  - Preço com desconto e estoque disponível
+- Layout **responsivo** e **moderno**
+- Componentes Vue reutilizáveis (opcional)
 
-### Compiles and minifies for production
-```
-npm run build
-```
+## 🛠 Tecnologias utilizadas
 
-### Lints and fixes files
-```
-npm run lint
-```
+- [Vue 3](https://vuejs.org/)
+- [Vite](https://vitejs.dev/)
+- HTML, CSS (Scoped Styles)
+- JavaScript moderno (ES6+)
 
-## Segue no insta: @thiagocanali
+## 📁 Estrutura do projeto
+
