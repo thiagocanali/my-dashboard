@@ -1,160 +1,88 @@
 <template>
-  <div class="user-page">
-    <!-- Cabeçalho -->
-    <div class="user-header">
-      <img
-        class="avatar"
-        :src="user.avatar"
-        alt="Foto do usuário"
-      />
+  <div class="max-w-4xl mx-auto">
+    <header class="mb-8">
+      <h1 class="text-2xl font-bold text-slate-800">Meu Perfil</h1>
+      <p class="text-slate-500 text-sm">Gerencie suas informações pessoais e de segurança.</p>
+    </header>
 
-      <div class="user-info">
-        <h1>{{ user.name }}</h1>
-        <p class="username">@{{ user.username }}</p>
-        <span class="status">{{ user.status }}</span>
-      </div>
-    </div>
-
-    <!-- Informações -->
-    <div class="user-card">
-      <h2>Informações pessoais</h2>
-
-      <ul>
-        <li><strong>Email:</strong> {{ user.email }}</li>
-        <li><strong>Telefone:</strong> {{ user.phone }}</li>
-        <li><strong>Localização:</strong> {{ user.location }}</li>
-        <li><strong>Nascimento:</strong> {{ user.birthDate }}</li>
-      </ul>
-    </div>
-
-    <!-- Estatísticas -->
-    <div class="user-card stats">
-      <h2>Estatísticas</h2>
-
-      <div class="stat">
-        <span class="number">{{ user.stats.posts }}</span>
-        <span class="label">Posts</span>
-      </div>
-
-      <div class="stat">
-        <span class="number">{{ user.stats.comments }}</span>
-        <span class="label">Comentários</span>
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      
+      <div class="space-y-6">
+        <div class="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm text-center">
+          <div class="relative w-32 h-32 mx-auto mb-4">
+            <div class="w-full h-full rounded-full bg-indigo-100 flex items-center justify-center text-4xl font-bold text-indigo-600 border-4 border-white shadow-md">
+              TC
+            </div>
+            <button class="absolute bottom-0 right-0 bg-white p-2 rounded-full shadow-lg border border-slate-100 hover:text-indigo-600 transition-colors">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+            </button>
+          </div>
+          <h2 class="font-bold text-slate-800 text-lg">Thiago Canali</h2>
+          <p class="text-slate-500 text-sm mb-4">Administrador</p>
+          <div class="pt-4 border-t border-slate-50 flex justify-around">
+            <div>
+              <p class="text-xs text-slate-400 uppercase font-semibold">Vendas</p>
+              <p class="font-bold text-slate-700">124</p>
+            </div>
+            <div>
+              <p class="text-xs text-slate-400 uppercase font-semibold">Avaliação</p>
+              <p class="font-bold text-slate-700">4.9</p>
+            </div>
+          </div>
+        </div>
       </div>
 
-      <div class="stat">
-        <span class="number">{{ user.stats.followers }}</span>
-        <span class="label">Seguidores</span>
-      </div>
-    </div>
+      <div class="lg:col-span-2 space-y-6">
+        <div class="bg-white p-8 rounded-2xl border border-slate-100 shadow-sm">
+          <h3 class="font-bold text-slate-800 mb-6 flex items-center gap-2">
+            <span class="w-1 h-6 bg-indigo-500 rounded-full"></span>
+            Informações Pessoais
+          </h3>
+          
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="space-y-2">
+              <label class="text-sm font-medium text-slate-700">Nome Completo</label>
+              <input type="text" value="Thiago Canali" class="w-full bg-slate-50 border-slate-200 rounded-xl px-4 py-2.5 text-sm focus:ring-2 focus:ring-indigo-500 outline-none transition-all" />
+            </div>
+            <div class="space-y-2">
+              <label class="text-sm font-medium text-slate-700">E-mail</label>
+              <input type="email" value="thiago@exemplo.com" class="w-full bg-slate-50 border-slate-200 rounded-xl px-4 py-2.5 text-sm focus:ring-2 focus:ring-indigo-500 outline-none transition-all" />
+            </div>
+            <div class="space-y-2">
+              <label class="text-sm font-medium text-slate-700">Cargo</label>
+              <input type="text" value="Desenvolvedor Fullstack" class="w-full bg-slate-50 border-slate-200 rounded-xl px-4 py-2.5 text-sm focus:ring-2 focus:ring-indigo-500 outline-none transition-all" />
+            </div>
+            <div class="space-y-2">
+              <label class="text-sm font-medium text-slate-700">Telemóvel</label>
+              <input type="text" value="+55 11 99999-9999" class="w-full bg-slate-50 border-slate-200 rounded-xl px-4 py-2.5 text-sm focus:ring-2 focus:ring-indigo-500 outline-none transition-all" />
+            </div>
+          </div>
 
-    <!-- Ações -->
-    <div class="user-actions">
-      <button class="btn primary">Editar perfil</button>
-      <button class="btn danger">Sair</button>
+          <div class="mt-8 pt-6 border-t border-slate-100 flex justify-end">
+            <button class="bg-indigo-600 hover:bg-indigo-700 text-white px-8 py-2.5 rounded-xl font-medium transition-all shadow-lg shadow-indigo-100">
+              Salvar Alterações
+            </button>
+          </div>
+        </div>
+
+        <div class="bg-white p-8 rounded-2xl border border-slate-100 shadow-sm">
+          <h3 class="font-bold text-slate-800 mb-6 flex items-center gap-2">
+            <span class="w-1 h-6 bg-red-400 rounded-full"></span>
+            Segurança
+          </h3>
+          <div class="flex items-center justify-between">
+            <div>
+              <p class="text-sm font-medium text-slate-800">Palavra-passe</p>
+              <p class="text-xs text-slate-500">Alterada pela última vez há 3 meses.</p>
+            </div>
+            <button class="text-indigo-600 font-semibold text-sm hover:underline">Alterar senha</button>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </template>
-
-<script setup>
-import { reactive } from "vue"
-
-const user = reactive({
-  name: "João Silva",
-  username: "joaosilva",
-  email: "joao@email.com",
-  phone: "(11) 99999-9999",
-  location: "São Paulo - SP",
-  birthDate: "10/04/1995",
-  status: "Usuário ativo",
-  avatar: "https://i.pravatar.cc/150?img=3",
-  stats: {
-    posts: 34,
-    comments: 128,
-    followers: 560
-  }
-})
-</script>
-
-<style scoped>
-.user-page {
-  max-width: 900px;
-  margin: auto;
-  padding: 2rem;
-  font-family: Arial, sans-serif;
-}
-
-.user-header {
-  display: flex;
-  align-items: center;
-  gap: 1.5rem;
-  margin-bottom: 2rem;
-}
-
-.avatar {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-}
-
-.username {
-  color: #666;
-}
-
-.status {
-  background: #e0f7e9;
-  color: #1e824c;
-  padding: 4px 10px;
-  border-radius: 12px;
-  font-size: 0.9rem;
-}
-
-.user-card {
-  background: #f9f9f9;
-  padding: 1.5rem;
-  border-radius: 8px;
-  margin-bottom: 1.5rem;
-}
-
-.user-card ul {
-  list-style: none;
-  padding: 0;
-}
-
-.user-card li {
-  margin-bottom: 8px;
-}
-
-.stats {
-  display: flex;
-  justify-content: space-around;
-  text-align: center;
-}
-
-.stat .number {
-  font-size: 1.5rem;
-  font-weight: bold;
-}
-
-.user-actions {
-  display: flex;
-  gap: 1rem;
-  justify-content: flex-end;
-}
-
-.btn {
-  padding: 0.6rem 1.2rem;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-}
-
-.primary {
-  background: #3498db;
-  color: #fff;
-}
-
-.danger {
-  background: #e74c3c;
-  color: #fff;
-}
-</style>

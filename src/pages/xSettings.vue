@@ -1,142 +1,45 @@
 <template>
-  <div class="settings-page">
-    <h1>Configurações</h1>
+  <div class="max-w-4xl mx-auto">
+    <header class="mb-8">
+      <h1 class="text-2xl font-bold text-slate-800">Configurações</h1>
+      <p class="text-slate-500 text-sm">Personalize o comportamento do seu painel administrativo.</p>
+    </header>
 
-    <!-- Perfil -->
-    <div class="settings-card">
-      <h2>Perfil</h2>
-
-      <div class="form-group">
-        <label>Nome</label>
-        <input v-model="settings.name" type="text" />
+    <div class="space-y-6">
+      <div class="bg-white rounded-2xl border border-slate-100 shadow-sm overflow-hidden">
+        <div class="p-6 border-b border-slate-50">
+          <h3 class="font-bold text-slate-800">Notificações por E-mail</h3>
+          <p class="text-xs text-slate-500">Escolha o que você deseja receber na sua caixa de entrada.</p>
+        </div>
+        <div class="p-6 space-y-4">
+          <div v-for="item in ['Novas vendas', 'Relatórios semanais', 'Alertas de estoque baixo']" :key="item" 
+            class="flex items-center justify-between">
+            <span class="text-sm font-medium text-slate-700">{{ item }}</span>
+            <label class="relative inline-flex items-center cursor-pointer">
+              <input type="checkbox" checked class="sr-only peer">
+              <div class="w-11 h-6 bg-slate-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-indigo-600"></div>
+            </label>
+          </div>
+        </div>
       </div>
 
-      <div class="form-group">
-        <label>Email</label>
-        <input v-model="settings.email" type="email" />
+      <div class="bg-white rounded-2xl border border-slate-100 shadow-sm p-6">
+        <h3 class="font-bold text-slate-800 mb-4">Aparência do Painel</h3>
+        <div class="grid grid-cols-3 gap-4">
+          <button class="border-2 border-indigo-500 p-4 rounded-xl bg-slate-50">
+            <div class="w-full h-12 bg-white border border-slate-200 rounded mb-2"></div>
+            <span class="text-xs font-bold text-indigo-600">Claro</span>
+          </button>
+          <button class="border border-slate-100 p-4 rounded-xl hover:bg-slate-50 transition-colors">
+            <div class="w-full h-12 bg-slate-900 rounded mb-2"></div>
+            <span class="text-xs font-medium text-slate-600">Escuro</span>
+          </button>
+          <button class="border border-slate-100 p-4 rounded-xl hover:bg-slate-50 transition-colors">
+            <div class="w-full h-12 bg-gradient-to-br from-indigo-500 to-purple-600 rounded mb-2"></div>
+            <span class="text-xs font-medium text-slate-600">Gradiente</span>
+          </button>
+        </div>
       </div>
-    </div>
-
-    <!-- Segurança -->
-    <div class="settings-card">
-      <h2>Segurança</h2>
-
-      <div class="form-group">
-        <label>Senha atual</label>
-        <input v-model="settings.currentPassword" type="password" />
-      </div>
-
-      <div class="form-group">
-        <label>Nova senha</label>
-        <input v-model="settings.newPassword" type="password" />
-      </div>
-    </div>
-
-    <!-- Preferências -->
-    <div class="settings-card">
-      <h2>Preferências</h2>
-
-      <div class="checkbox-group">
-        <label>
-          <input type="checkbox" v-model="settings.notifications" />
-          Receber notificações por email
-        </label>
-      </div>
-
-      <div class="form-group">
-        <label>Tema</label>
-        <select v-model="settings.theme">
-          <option value="light">Claro</option>
-          <option value="dark">Escuro</option>
-        </select>
-      </div>
-    </div>
-
-    <!-- Ações -->
-    <div class="actions">
-      <button class="btn save" @click="saveSettings">
-        Salvar alterações
-      </button>
     </div>
   </div>
 </template>
-
-<script setup>
-import { reactive } from "vue"
-
-const settings = reactive({
-  name: "João Silva",
-  email: "joao@email.com",
-  currentPassword: "",
-  newPassword: "",
-  notifications: true,
-  theme: "light"
-})
-
-const saveSettings = () => {
-  alert("Configurações salvas com sucesso!");
-  // Aqui você enviaria os dados para o backend
-}
-</script>
-
-<style scoped>
-.settings-page {
-  max-width: 900px;
-  margin: auto;
-  padding: 2rem;
-  font-family: Arial, sans-serif;
-}
-
-h1 {
-  margin-bottom: 2rem;
-  color: #2c3e50;
-}
-
-.settings-card {
-  background: #f9f9f9;
-  padding: 1.8rem;
-  border-radius: 8px;
-  margin-bottom: 1.5rem;
-}
-
-.settings-card h2 {
-  margin-bottom: 1rem;
-}
-
-.form-group {
-  margin-bottom: 1.2rem;
-}
-
-label {
-  display: block;
-  font-weight: bold;
-  margin-bottom: 0.4rem;
-}
-
-input,
-select {
-  width: 100%;
-  padding: 0.7rem;
-  border-radius: 6px;
-  border: 1px solid #ddd;
-}
-
-.checkbox-group label {
-  font-weight: normal;
-}
-
-.actions {
-  display: flex;
-  justify-content: flex-end;
-}
-
-.btn.save {
-  padding: 0.8rem 1.6rem;
-  background: #27ae60;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  font-size: 1rem;
-  cursor: pointer;
-}
-</style>
